@@ -28,7 +28,6 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-          flutter-version: '3.24.5' # or any suitable version, usually you can omit flutter-version to get latest stable
           cache: true
 
       - name: Get dependencies
