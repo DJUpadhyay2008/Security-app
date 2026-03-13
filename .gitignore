@@ -1,0 +1,69 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code
+.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+bin/
+coverage/
+
+# Android build artifacts
+android/app/debug
+android/app/profile
+android/app/release
+
+# Web build artifacts
+build/web/
+
+# Backend (Spring Boot/Maven)
+backend/target/
+backend/.settings/
+backend/.project
+backend/.classpath
+backend/bin/
+backend/*.log
+backend/boot.log
+backend/boot_log.txt
+backend/server.log
+backend/startup.log
+backend/startup_debug.log
+
+# Mobile App subfolder
+mobile_app/build/
+mobile_app/.dart_tool/
+mobile_app/.flutter-plugins-dependencies
+mobile_app/pubspec.lock
+mobile_app/analyze_out.txt
+mobile_app/out.txt
+
+# Secrets and Sensitive Data
+**/serviceAccountKey.json
+**/*.key
+**/.env
+**/google-services.json
+**/GoogleService-Info.plist
