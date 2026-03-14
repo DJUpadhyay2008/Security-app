@@ -15,20 +15,43 @@ class LoginScreen extends ConsumerWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Background Glow
+          // Vibrant Background Gradients
           Positioned(
-            top: -100,
+            top: -150,
             right: -100,
+            child: Container(
+              width: 400,
+              height: 400,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    const Color(0xFF6366F1).withAlpha(60),
+                    const Color(0xFF6366F1).withAlpha(0),
+                  ],
+                ),
+              ),
+            ),
+          ).animate().fadeIn(duration: 1.seconds).scale(),
+          
+          Positioned(
+            bottom: -100,
+            left: -100,
             child: Container(
               width: 300,
               height: 300,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xFF6366F1).withAlpha(40),
+                gradient: RadialGradient(
+                  colors: [
+                    const Color(0xFF10B981).withAlpha(40),
+                    const Color(0xFF10B981).withAlpha(0),
+                  ],
+                ),
               ),
             ),
-          ).animate().fadeIn(duration: 1.seconds).scale(),
-          
+          ).animate().fadeIn(duration: 1.seconds, delay: 500.ms).scale(),
+
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -38,11 +61,18 @@ class LoginScreen extends ConsumerWidget {
                 children: [
                    Center(
                     child: Container(
-                      padding: const EdgeInsets.all(24),
+                      padding: const EdgeInsets.all(28),
                       decoration: BoxDecoration(
-                        color: Colors.white.withAlpha(10),
+                        color: Colors.white,
                         shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white.withAlpha(30)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFF6366F1).withAlpha(40),
+                            blurRadius: 40,
+                            offset: const Offset(0, 10),
+                          )
+                        ],
+                        border: Border.all(color: Colors.white, width: 4),
                       ),
                       child: const Icon(Icons.shield_rounded, size: 80, color: Color(0xFF6366F1)),
                     ),
@@ -51,22 +81,23 @@ class LoginScreen extends ConsumerWidget {
                   const SizedBox(height: 32),
                   
                   Text(
-                    'SECURITY PASS',
+                    'GATEKEEPER',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.outfit(
-                      fontSize: 32,
+                      fontSize: 36,
                       fontWeight: FontWeight.w900,
-                      letterSpacing: 2,
-                      color: Colors.white,
+                      letterSpacing: 3,
+                      color: const Color(0xFF1E293B),
                     ),
                   ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.2),
                   
                   Text(
-                    'Smarter society management',
+                    'Secure. Simple. Smart.',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.outfit(
                       fontSize: 16,
-                      color: Colors.white60,
+                      fontWeight: FontWeight.w500,
+                      color: const Color(0xFF64748B),
                     ),
                   ).animate().fadeIn(delay: 400.ms),
                   
@@ -74,7 +105,7 @@ class LoginScreen extends ConsumerWidget {
                   
                   _LoginButton(
                     title: 'GUARD PORTAL',
-                    subtitle: 'Manage gate & visitors',
+                    subtitle: 'Secure entry management',
                     icon: Icons.security_rounded,
                     color: const Color(0xFF6366F1),
                     onTap: () {
@@ -93,7 +124,7 @@ class LoginScreen extends ConsumerWidget {
                   
                   _LoginButton(
                     title: 'RESIDENT ACCESS',
-                    subtitle: 'Logs & preferences',
+                    subtitle: 'Visitor logs & prefs',
                     icon: Icons.home_rounded,
                     color: const Color(0xFF10B981),
                     onTap: () {
@@ -111,9 +142,9 @@ class LoginScreen extends ConsumerWidget {
                   const SizedBox(height: 48),
                   
                   const Text(
-                    'Powered by Antigravity OS',
+                    'v1.0.0 • GateKeeper Secure App',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white24, fontSize: 12),
+                    style: TextStyle(color: Color(0xFF94A3B8), fontSize: 12, fontWeight: FontWeight.w500),
                   ).animate().fadeIn(delay: 1.seconds),
                 ],
               ),
@@ -142,68 +173,61 @@ class _LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(24),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white.withAlpha(10),
-            borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: Colors.white.withAlpha(20)),
-            boxShadow: [
-              BoxShadow(
-                color: color.withAlpha(30),
-                blurRadius: 30,
-                offset: const Offset(0, 10),
-              )
-            ],
-          ),
-          child: Material(
-            color: Colors.transparent,
-            borderRadius: BorderRadius.circular(24),
-            child: InkWell(
-              onTap: onTap,
-              borderRadius: BorderRadius.circular(24),
-              child: Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: color.withAlpha(40),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Icon(icon, color: color, size: 32),
-                    ),
-                    const SizedBox(width: 20),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            title,
-                            style: GoogleFonts.outfit(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            subtitle,
-                            style: GoogleFonts.outfit(
-                              fontSize: 14,
-                              color: Colors.white70,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Icon(Icons.arrow_forward_ios_rounded, color: Colors.white.withAlpha(60), size: 16),
-                  ],
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: color.withAlpha(25),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
+          )
+        ],
+      ),
+      child: Material(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(24),
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: color.withAlpha(30),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Icon(icon, color: color, size: 32),
                 ),
-              ),
+                const SizedBox(width: 20),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: GoogleFonts.outfit(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: const Color(0xFF1E293B),
+                        ),
+                      ),
+                      Text(
+                        subtitle,
+                        style: GoogleFonts.outfit(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: const Color(0xFF64748B),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Icon(Icons.arrow_forward_ios_rounded, color: const Color(0xFFCBD5E1), size: 16),
+              ],
             ),
           ),
         ),
