@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: const Color(0xFF020617),
         textTheme: GoogleFonts.outfitTextTheme(ThemeData.dark().textTheme),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           color: const Color(0xFF1E293B),
           elevation: 0,
           shape: RoundedRectangleBorder(
