@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -116,16 +115,16 @@ class GuardDashboard extends ConsumerWidget {
                 pendingVisitors.when(
                   data: (visitors) {
                     if (visitors.isEmpty) {
-                      return SliverFillRemaining(
+                      return const SliverFillRemaining(
                         hasScrollBody: false,
                         child: Center(
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(Icons.check_circle_outline_rounded, size: 64, color: const Color(0xFFCBD5E1)),
-                              const SizedBox(height: 16),
-                              const Text('Gate is clear', style: TextStyle(color: Color(0xFF64748B), fontSize: 18, fontWeight: FontWeight.w600)),
-                              const Text('No pending visitor requests', style: TextStyle(color: Color(0xFF94A3B8), fontSize: 14)),
+                              Icon(Icons.check_circle_outline_rounded, size: 64, color: Color(0xFFCBD5E1)),
+                              SizedBox(height: 16),
+                              Text('Gate is clear', style: TextStyle(color: Color(0xFF64748B), fontSize: 18, fontWeight: FontWeight.w600)),
+                              Text('No pending visitor requests', style: TextStyle(color: Color(0xFF94A3B8), fontSize: 14)),
                             ],
                           ),
                         ),

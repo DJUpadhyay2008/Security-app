@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -77,13 +76,13 @@ class ResidentDashboard extends ConsumerWidget {
                   child: allVisitors.when(
                     data: (visitors) {
                       if (visitors.isEmpty) {
-                        return Center(
+                        return const Center(
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(Icons.history_rounded, size: 64, color: const Color(0xFFCBD5E1)),
-                              const SizedBox(height: 16),
-                              const Text('No visitors yet', style: TextStyle(color: Color(0xFF64748B), fontSize: 18, fontWeight: FontWeight.w600)),
+                              Icon(Icons.history_rounded, size: 64, color: Color(0xFFCBD5E1)),
+                              SizedBox(height: 16),
+                              Text('No visitors yet', style: TextStyle(color: Color(0xFF64748B), fontSize: 18, fontWeight: FontWeight.w600)),
                             ],
                           ),
                         );
@@ -293,7 +292,7 @@ class _PrefOption extends StatelessWidget {
                     ],
                   ),
                 ),
-                Icon(Icons.chevron_right_rounded, color: const Color(0xFFCBD5E1)),
+                const Icon(Icons.chevron_right_rounded, color: Color(0xFFCBD5E1)),
               ],
             ),
           ),

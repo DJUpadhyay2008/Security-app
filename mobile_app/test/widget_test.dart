@@ -8,7 +8,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:mobile_app/main.dart';
+import 'package:gatekeeper/main.dart';
 
 void main() {
   testWidgets('Login screen smoke test', (WidgetTester tester) async {
@@ -16,8 +16,8 @@ void main() {
     await tester.pumpWidget(const ProviderScope(child: MyApp()));
 
     // Verify that login screen is shown.
-    expect(find.text('Visitor Management'), findsOneWidget);
-    expect(find.text('GUARD LOGIN'), findsOneWidget);
-    expect(find.text('RESIDENT LOGIN'), findsOneWidget);
+    expect(find.text('GATEKEEPER'), findsOneWidget);
+    expect(find.text('GUARD PORTAL'), findsOneWidget);
+    expect(find.text('RESIDENT ACCESS'), findsOneWidget);
   });
 }
